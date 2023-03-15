@@ -1,0 +1,52 @@
+python detect.py --weights best.pt --source data/images/test --conf 0.5
+
+python detect.py --weights best.pt --source data/video --conf 0.5
+
+python detect.py --weights best.pt --source data/test01 --conf 0.5
+
+python detect.py --weights best.pt --source 0 --conf 0.5
+
+python detect.py --weights best.pt --source data/test --conf 0.5
+
+
+
+
+
+python scripts.py --weights best.pt --source data/video --conf 0.5
+
+python scripts.py --weights best.pt --source 0 --conf 0.5
+
+python scripts.py --weights best.pt --source data/images/test --conf 0.5
+
+
+
+
+train
+
+python train.py --img 1280 --batch 16 --epochs 200 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+python train.py --img 1280 --batch 8 --epochs 200 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0
+
+python train.py --img 1280 --batch 8 --epochs 200 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+python train.py --img 1280 --batch 8 --epochs 200 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0
+
+python train.py --img 1280 --batch 8 --epochs 300 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+python train.py --img 640 --batch 8 --epochs 300 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+python train.py --img 640 --batch 8 --epochs 500 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+python train.py --img 640 --batch 8 --epochs 400 --data config.yaml --weights  yolov5s.pt --workers 4 --cache --device 0,1
+
+
+
+Distance
+
+python inference.py --data object-detector/results/data/data.csv --model best.pt --weights best.pt --results . 
+
+python detect.py --save-txt --weights training-results/weights/best.pt --conf 0.4 --source data/vdo
+
+python inference.py --data results/data/data.csv --model models/model@1535470106.json --weights models/model@1535470106.h5 --results .
+
+python visualizer.py --data predictions.csv --frames results/frames/ --fps 90 --results .

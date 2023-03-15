@@ -1,0 +1,9 @@
+#path
+train: mydata/images/train # train images
+val: mydata/images/validation #val images
+
+# number of classes
+nc: 1
+
+# class names
+names: ['crop']
